@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Test Page{% endblock %}
+{% block content %}
+<div class="container">
+  <h1>Test Page</h1>
+  {{message}}
+  <div>
+    This is just a test page showing a webserver running PHP operating with a
+    connection to a database and a mounted data directory.
+  </div>
+
+  <form method="post"  enctype= "multipart/form-data">
+    {{ form_widget(form) }}
+    <input type="submit" name="Upload File" />
+  </form>
+  <h2>DB Entries</h2>
+  <ul>
+  {% for entry in db_entries %}
+     <li>{{ entry.name|e }}</li>
+  {% endfor %}
+  </ul>
+</div>
+{% endblock %}
